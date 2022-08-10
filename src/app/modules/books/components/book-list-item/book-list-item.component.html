@@ -1,0 +1,24 @@
+
+<mat-card class="mat-elevation-z4 m-2" *ngIf="bookOverview">
+	<div class="d-flex flex-row justify-content-around">
+		<img
+			mat-card-sm-image
+			src="data:image/png;base64,{{bookOverview.cover}}"
+		/>
+		<div class="grid-card mx-2">
+			<mat-card-title class="grid-header">{{bookOverview.title}}</mat-card-title>
+			<mat-card-content class="grid-content">
+				<p>Reviews {{bookOverview.reviewsNumber}}</p>
+			</mat-card-content>
+			<mat-card-content class="grid-content">
+				<p>Rating {{bookOverview.rating|number: '1.1-2'}}</p>
+			</mat-card-content>
+			<mat-card-actions
+				class="grid-buttons"
+			>
+				<button mat-button>edit</button>
+				<button mat-button>open</button>
+			</mat-card-actions>
+		</div>
+	</div>
+</mat-card>
