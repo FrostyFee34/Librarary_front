@@ -3,13 +3,14 @@ import { environment } from 'src/environments/environment';
 import { IBookOverview } from '../models/bookOverview';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { of, map } from 'rxjs';
+import { IBook } from '../models/book';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class BooksService {
 	baseUrl = environment.apiUrl;
-	bookOverviews: IBookOverview[] = [];
+	// bookInEditObservable
 	constructor(private http: HttpClient) {}
 
 	getBooks(orderBy?: string) {
@@ -24,12 +25,12 @@ export class BooksService {
 			})
 			.pipe(
 				map((response) => {
-					return response.body
+					return response.body;
 				})
 			);
 	}
 
-	getRecommendedBooks(genre?: string){
+	getRecommendedBooks(genre?: string) {
 		let httpParams = new HttpParams();
 		if (genre) {
 			httpParams = httpParams.append('genre', genre);
@@ -41,7 +42,17 @@ export class BooksService {
 			})
 			.pipe(
 				map((response) => {
-					return response.body
+					return response.body;
+				})
+			);
+	}
+
+	getBookById(id: number) {
+		return this.http
+			.get<IBook>(this.baseUrl + 'books/id', { observe: 'response' })
+			.pipe(
+				map((response) => {
+					return response.body;
 				})
 			);
 	}

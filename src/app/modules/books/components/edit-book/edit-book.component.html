@@ -1,1 +1,48 @@
-<p>edit-book works!</p>
+<form
+	[formGroup]="bookForm"
+	(ngSubmit)="onSubmit()"
+	class="border border-2 border-dark rounded p-4"
+	style="height: 300px"
+>
+	<h2 *ngIf="id">Edit book</h2>
+	<h2 *ngIf="!id">Add book</h2>
+	<div class="d-flex flex-row justify-content-between">
+		<div class="d-flex flex-column">
+			<div>
+				<label for="title"> Title </label>
+				<input matin id="title" type="text" formControlName="title" />
+			</div>
+			<div>
+				<label for="cover"> Cover </label>
+				<input id="cover" type="file" formControlName="cover" />
+			</div>
+			<div>
+				<label for="genre"> Genre </label>
+				<input matin id="genre" type="text" formControlName="genre" />
+			</div>
+			<div>
+				<label for="author"> Author </label>
+				<input matin id="author" type="text" formControlName="author" />
+			</div>
+		</div>
+		<div class="d-flex flex-column">
+			<div>
+				<label for="content"> Content </label>
+				<textarea
+					matin
+					id="content"
+					type="text"
+					formControlName="content"
+				></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center">
+		<button mat-flat-button color="primary" class="button" type="submit">
+			Submit
+		</button>
+		<button mat-button color="secondary" class="button mx-2" type="reset">
+			Reset
+		</button>
+	</div>
+</form>

@@ -19,6 +19,7 @@ export class BookListComponent implements OnInit {
   getAll(){
     this.bookOverviewsObservable$ = this.booksService.getBooks();
   }
+  
   getRecommended(){
     this.bookOverviewsObservable$ = this.booksService.getRecommendedBooks()
   }

@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 		MatButtonModule,
 		MatGridListModule,
 		ScrollingModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	exports: [BooksPageComponent],
 })
